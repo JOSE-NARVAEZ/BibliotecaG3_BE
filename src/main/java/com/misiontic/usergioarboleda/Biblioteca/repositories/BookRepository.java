@@ -1,5 +1,6 @@
 package com.misiontic.usergioarboleda.Biblioteca.repositories;
 
+import com.misiontic.usergioarboleda.Biblioteca.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
