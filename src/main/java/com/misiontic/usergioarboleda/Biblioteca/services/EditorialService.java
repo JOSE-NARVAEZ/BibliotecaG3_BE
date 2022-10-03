@@ -13,7 +13,7 @@ public class EditorialService {
     @Autowired
     private EditorialRepository editorialRepository;
 
-    public List<Editorial> getAll() {
+    public List<Editorial> getAllEditoriales() {
         return editorialRepository.getAll();
     }
 
@@ -21,15 +21,40 @@ public class EditorialService {
         return editorialRepository.getEditorial(id);
     }
 
-    public Editorial save(){
-
+    public Editorial insertEditorial(Editorial editorial){
+        if(editorial.getId() == null){
+            if(editorial.getName()!=null && editorial.getCountry()!=null){
+                return editorialRepository.save( editorial );
+            }
+            else
+                return editorial;
+        }
+        else
+            return editorial;
     }
 
-    public Editorial update(){
-
+    public Editorial updateEditorial(Editorial editorial){
+        if(editorial.getId() != null){
+            Optional<Editorial> temp = editorialRepository.getEditorial( editorial.getId() );
+            if( !temp.isEmpty() ){
+                if(editorial.getName() != null)
+                    temp.get().setName( editorial.getName() );
+                if(editorial.getCountry() != null)
+                    temp.get().setCountry( editorial.getCountry() );
+                return editorialRepository.save( temp.get() );
+            }
+            else
+                return editorial;
+        }
+        else
+            return editorial;
     }
 
-    public void delete(){
-
+    public Boolean deleteEditorial(int id){
+        Boolean success = editorialRepository.getEditorial(id).map(editorial -> {
+            editorialRepository.delete(editorial);
+            return true;
+        }).orElse(false);
+        return success;
     }
 }
