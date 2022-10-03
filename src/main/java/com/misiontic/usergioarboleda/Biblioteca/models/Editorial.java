@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="editorial")
