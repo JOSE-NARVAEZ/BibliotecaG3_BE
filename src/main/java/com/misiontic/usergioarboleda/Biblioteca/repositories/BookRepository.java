@@ -26,7 +26,7 @@ public class BookRepository {
      * @param endYear
      * @return
      */
-    public List<Book> getByDates(String startYear, String endYear){
+    public List<Book> getByDates(int startYear, int endYear){
         return (List<Book>) bookCRUDRepository.findBooksByDates(startYear, endYear);
     }
 

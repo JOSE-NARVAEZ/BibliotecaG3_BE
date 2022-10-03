@@ -12,5 +12,5 @@ import java.util.List;
 public interface BookCRUDRepository extends CrudRepository<Book, Integer>{
 
     @Query(value="SELECT * FROM book WHERE year>=? AND year<=?")
-    public List<Book> findBooksByDates(String startYear, String endYear);
+    public List<Book> findBooksByDates(int startYear, int endYear);
 }
