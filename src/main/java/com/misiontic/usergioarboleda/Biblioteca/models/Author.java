@@ -19,18 +19,6 @@ public class Author implements Serializable {
     @ManyToMany(mappedBy="authors")
     private Set<Book> books;
 
-    /**
-     * Constructor of the class
-     * @param code
-     * @param name
-     * @param lastname
-     */
-    public Author(Integer code, String name, String lastname){
-        this.code     = code;
-        this.name     = name;
-        this.lastname = lastname;
-    }
-
 
     // ========== Getters and Setters ========== //
     /**
